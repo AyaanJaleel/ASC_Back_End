@@ -16,7 +16,7 @@ MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useU
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
-    //res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
+    res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
     next();
   });
 
