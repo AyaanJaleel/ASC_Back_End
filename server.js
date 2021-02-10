@@ -5,6 +5,8 @@ var path = require("path");
 var fs = require("fs");
 var imagePath = path.resolve(__dirname, "static");
 const ObjectId = require('mongodb').ObjectID;
+var mypath = path.resolve(__dirname, "CW2_Front_End");
+app.use(express.static(mypath));
 app.use(express.json());
 
 MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useUnifiedTopology: true}, (err, client) => {    
@@ -14,9 +16,9 @@ MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useU
 app.use((req,res,next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
-    res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS")
+    //res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
     next();
-});
+  });
 
 app.use(function(req, res, next) { 
     console.log("-> Here is a " + req.method + " method to " + req.url);    
