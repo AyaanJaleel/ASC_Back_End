@@ -13,11 +13,11 @@ MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useU
     db= client.db('webstore');
 });
 
-app.use(function(req, res, next) {// allow different IP address    
-    res.header("Access-Control-Allow-Origin", "*"); 
-    // allow different header fields    
-    res.header("Access-Control-Allow-Headers", "*");     
-    next();  
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
+    next();
 });
 
 app.use(function(req, res, next) { 
