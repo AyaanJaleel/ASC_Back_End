@@ -9,11 +9,6 @@ var mypath = path.resolve(__dirname, "CW2_Front_End");
 app.use(express.static(mypath));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-// const cors = require('cors');
-
-// app.use(cors())
-
-// app.options('', cors()) );
 
 MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useUnifiedTopology: true}, (err, client) => {    
     db= client.db('webstore');
@@ -82,10 +77,11 @@ app.put("/collection/:collectionName", (req, res, next) => {
 });
 
 app.use("/image", express.static(imagePath));
-// app.use(function (req, res, next) {
-//     res.status(404).send("404: FILE NOT FOUND!");
-//     next();
-// });
+
+app.use(function (req, res, next) {
+    res.send("404: FILE NOT FOUND!");
+    next();
+});
 //port code
 const port = process.env.PORT || 3000;
 
