@@ -15,28 +15,12 @@ MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useU
     db= client.db('webstore');
 });
 
-// app.use((req,res,next)=>{
-//     // res.setHeader('Access-Control-Allow-Origin', '*');
-//     // res.header('Access-Control-Allow-Headers', '*');
-//     // res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
-//     // next();
-//     // res.setHeader('Access-Control-Allow-Origin', '*');
-//     // res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//     // res.setHeader('Access-Control-Allow-Methods', 'PUT');
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-
-//     // Request methods you wish to allow
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-//     // Request headers you wish to allow
-//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-//     // Set to true if you need the website to include cookies in the requests sent
-//     // to the API (e.g. in case you use sessions)
-//     res.setHeader('Access-Control-Allow-Credentials', true);
-//     // Pass to next layer of middleware
-//     next();
-// });
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
+    next();
+});
 
 app.use(function(req, res, next) { 
     console.log("-> Here is a " + req.method + " method to " + req.url);    
