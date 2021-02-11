@@ -150,7 +150,7 @@
                     sortBy: ''
                 },
                 created: function(){
-                    fetch('http://afterschoolactivities.herokuapp.com/collection/products').then(
+                    fetch('https://afterschoolactivities.herokuapp.com/collection/products').then(
                         function(response){
                             response.json().then(
                                 function(json){
@@ -189,7 +189,7 @@
                         this.showProduct = this.showProduct ? false : true;
                     },
                     updateStock(){
-                        fetch('http://afterschoolactivities.herokuapp.com/collection/products', {
+                        fetch('https://afterschoolactivities.herokuapp.com/collection/products', {
                             method: 'PUT',
                             headers: {
                             'Content-Type' : 'application/json'
@@ -207,7 +207,7 @@
                             this.order.prods.push(prodSchema);
                         }
                         //this.updateStock();
-                        fetch('http://afterschoolactivities.herokuapp.com/collection/Order', {
+                        fetch('https://afterschoolactivities.herokuapp.com/collection/Order', {
                             method: 'POST',
                             headers: {
                             'Content-Type' : 'application/json',
