@@ -206,7 +206,7 @@
                             var prodSchema = {id: this.cart[i].id, space: this.cart[i].inCart}
                             this.order.prods.push(prodSchema);
                         }
-                        //this.updateStock();
+                        this.updateStock();
                         fetch('https://afterschoolactivities.herokuapp.com/collection/Order', {
                             method: 'POST',
                             headers: {
