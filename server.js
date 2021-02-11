@@ -8,6 +8,7 @@ const ObjectId = require('mongodb').ObjectID;
 var mypath = path.resolve(__dirname, "CW2_Front_End");
 app.use(express.static(mypath));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 // const cors = require('cors');
 
 // app.use(cors())
