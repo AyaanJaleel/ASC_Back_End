@@ -75,10 +75,10 @@ app.put("/collection/:collectionName", (req, res, next) => {
 });
 
 app.use("/image", express.static(imagePath));
-app.use(function (req, res, next) {
-    res.status(404).send("404: FILE NOT FOUND!");
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.status(404).send("404: FILE NOT FOUND!");
+//     next();
+// });
 //port code
 const port = process.env.PORT || 3000;
 
