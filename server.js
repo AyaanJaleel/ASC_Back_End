@@ -8,8 +8,6 @@ const ObjectId = require('mongodb').ObjectID;
 var mypath = path.resolve(__dirname, "CW2_Front_End");
 app.use(express.static(mypath));
 app.use(express.json());
-var cors = require('cors');
-app.use(cors({origin: 'null'}));
 
 MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useUnifiedTopology: true}, (err, client) => {    
     db= client.db('webstore');
