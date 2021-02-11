@@ -14,10 +14,13 @@ MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useU
 });
 
 app.use((req,res,next)=>{
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+    // res.header('Access-Control-Allow-Headers', '*');
+    // res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
+    // next();
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', '*');
-    res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
-    next();
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Methods', 'PUT');
 });
 
 app.use(function(req, res, next) { 
