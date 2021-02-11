@@ -8,6 +8,26 @@ const ObjectId = require('mongodb').ObjectID;
 var mypath = path.resolve(__dirname, "CW2_Front_End");
 app.use(express.static(mypath));
 app.use(express.json());
+const cors = require('cors');
+const whitelist = ['http://localhost:3000'];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin) {
+            return callback(null, true);
+        }
+
+        if (whitelist.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}
+
+// end 
+app.use(cors(corsOptions));
 
 MongoClient.connect('mongodb+srv://Ayaan:mongoman@cw2.3oel9.mongodb.net/', {useUnifiedTopology: true}, (err, client) => {    
     db= client.db('webstore');
@@ -36,13 +56,13 @@ app.use(function(req, res, next) {
     });
 });
 
-app.get('/', (req,res,next)=>{
-    res.send('This is working!');
-});
-
 app.param('collectionName', (req, res, next, collectionName) => {
     req.collection = db.collection(collectionName);
     return next();
+});
+
+app.get('/', (req,res,next)=>{
+    res.send('This is working!');
 });
 
 app.get('/collection/:collectionName', (req, res, next) => {
