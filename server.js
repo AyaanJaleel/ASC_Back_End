@@ -3,7 +3,6 @@ var app = express();
 const MongoClient = require('mongodb').MongoClient;
 var path = require("path");
 var fs = require("fs");
-var http = require('http');
 var imagePath = path.resolve(__dirname, "static");
 const ObjectId = require('mongodb').ObjectID;
 var mypath = path.resolve(__dirname, "CW2_Front_End");
@@ -83,16 +82,10 @@ app.use(function (req, res, next) {
     res.send("404: FILE NOT FOUND!");
     next();
 });
-//port code
-//const port = process.env.PORT || 3000;
-// app.listen(process.env.PORT || 3000, function(){
-//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-// });
-http.listen((process.env.PORT || 5000), function(){
-    console.log('listening on *:5000');
-  });
 
-app.listen(port, () => {
+//const port = process.env.PORT || 3000;
+
+app.listen(process.env.PORT || 3000, () => {
     console.log('Express server is running at localhost:3000');
 });
 
