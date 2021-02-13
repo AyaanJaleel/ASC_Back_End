@@ -61,7 +61,7 @@ app.post('/collection/:collectionName', (req,res,next)=>{
     });
 });
 
-//function to update the lesson quanity on mondodb
+//function to update the lesson quanity on mongodb
 app.put("/collection/:collectionName", (req, res, next) => {
     for (let i = 0; i < req.body.prods.length; i++) {
         req.collection.update(

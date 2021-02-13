@@ -201,6 +201,7 @@
                                     alert("Looks like there was a problem: \n", error);
                                 }); 
                     },
+                    // posting orders to mongoDB
                     confirmOrder(){
                         for(var i=0; i < this.cart.length; i++){
                             var prodSchema = {id: this.cart[i].id, space: this.cart[i].inCart}
