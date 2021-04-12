@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 MongoClient.connect('mongodb+srv://Ayaan:brick123@cluster0.3oel9.mongodb.net/', {useUnifiedTopology: true}, (err, client) => {    
-    db= client.db('store');
+    db= client.db('shop');
 });
 
 app.use(function(req, res, next) {
